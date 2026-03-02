@@ -6,6 +6,7 @@
 int GEN[MAX_ENTITIES];
 int USED[MAX_ENTITIES];
 Entity ENTITIES[MAX_ENTITIES];
+Font Gohu;
 
 Id find_next_free() {
 
@@ -29,8 +30,7 @@ void init_entity(Entity *form) {
 void update_entity(Entity *ent) {}
 
 void draw_entity(Entity *ent) {
-  DrawText(ent->symbol, ent->x * FONTSIZE, ent->y * FONTSIZE, FONTSIZE,
-           ent->color);
+  DrawTextEx(Gohu, ent->symbol, (Vector2){0, 0}, FONTSIZE, 2, ent->color);
 }
 
 void update_entities() {

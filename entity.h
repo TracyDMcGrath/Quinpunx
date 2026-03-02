@@ -35,5 +35,6 @@ void draw_entities();
 extern int GEN[MAX_ENTITIES];
 extern int USED[MAX_ENTITIES];
 extern Entity ENTITIES[MAX_ENTITIES];
+extern Font Gohu;
 
 #endif // !_entity_h_
