@@ -27,14 +27,14 @@ typedef struct Entity {
 Id find_next_free();
 void init_entity(Entity *form);
 void update_entity(Entity *ent);
-void draw_entity(Entity *ent);
+void draw_entity(Entity *ent, Font *font);
 
 void update_entities();
-void draw_entities();
+void draw_entities(Font *font);
 
 extern int GEN[MAX_ENTITIES];
 extern int USED[MAX_ENTITIES];
 extern Entity ENTITIES[MAX_ENTITIES];
-extern Font Gohu;
+extern Font MONO;
 
 #endif // !_entity_h_

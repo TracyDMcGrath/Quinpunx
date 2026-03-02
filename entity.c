@@ -6,7 +6,6 @@
 int GEN[MAX_ENTITIES];
 int USED[MAX_ENTITIES];
 Entity ENTITIES[MAX_ENTITIES];
-Font Gohu;
 
 Id find_next_free() {
 
@@ -27,10 +26,37 @@ void init_entity(Entity *form) {
   GEN[next_free.index]++;
 }
 
-void update_entity(Entity *ent) {}
+void update_entity(Entity *ent) {
 
-void draw_entity(Entity *ent) {
-  DrawTextEx(Gohu, ent->symbol, (Vector2){0, 0}, FONTSIZE, 2, ent->color);
+  if (ent->type == PLAYER) {
+    if (IsKeyPressed(KEY_L)) {
+      ent->x++;
+    } else if (IsKeyPressed(KEY_H)) {
+      ent->x--;
+    } else if (IsKeyPressed(KEY_J)) {
+      ent->y++;
+    } else if (IsKeyPressed(KEY_K)) {
+      ent->y--;
+    } else if (IsKeyPressed(KEY_Y)) {
+      ent->x--;
+      ent->y--;
+    } else if (IsKeyPressed(KEY_U)) {
+      ent->x++;
+      ent->y--;
+    } else if (IsKeyPressed(KEY_B)) {
+      ent->x--;
+      ent->y++;
+    } else if (IsKeyPressed(KEY_N)) {
+      ent->x++;
+      ent->y++;
+    }
+  }
+}
+
+void draw_entity(Entity *ent, Font *font) {
+  DrawTextEx(*font, ent->symbol,
+             (Vector2){ent->x * FONTSIZE, ent->y * FONTSIZE}, FONTSIZE, 2,
+             ent->color);
 }
 
 void update_entities() {
@@ -40,10 +66,10 @@ void update_entities() {
     }
   }
 }
-void draw_entities() {
+void draw_entities(Font *font) {
   for (int i = 0; i < MAX_ENTITIES; i++) {
     if (USED[i]) {
-      draw_entity(&ENTITIES[i]);
+      draw_entity(&ENTITIES[i], font);
     }
   }
 }

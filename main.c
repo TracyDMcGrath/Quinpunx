@@ -7,10 +7,8 @@ int main() {
 
   InitWindow(SCREENWIDTH, SCREENHEIGHT, "Quinpunx");
 
-  Font Gohu = LoadFontEx("assets/Gohu/GohuFontuni14NerdFontPropo-Regular.ttf",
-                         14, 0, 250);
-
-  Font Mono = LoadFontEx("assets/testfont.ttf", 14, 0, 250);
+  Font Mono = LoadFontEx("./assets/monofur/MonofurNerdFontMono-Regular.ttf", 32,
+                         0, 250);
 
   init_entity(&PLAYER_FORM);
 
@@ -24,7 +22,7 @@ int main() {
 
     ClearBackground(BLACK);
 
-    draw_entities();
+    draw_entities(&Mono);
 
     EndDrawing();
   }
