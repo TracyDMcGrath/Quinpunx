@@ -19,11 +19,13 @@ Id find_next_free() {
   return none_free;
 }
 
-void init_entity(Entity *form) {
+void init_entity(Entity *form, int x, int y) {
   Id next_free = find_next_free();
   memcpy(&ENTITIES[next_free.index], form, sizeof(Entity));
   USED[next_free.index] = 1;
   GEN[next_free.index]++;
+  ENTITIES[next_free.index].x = x;
+  ENTITIES[next_free.index].y = y;
 }
 
 void update_entity(Entity *ent) {
@@ -55,8 +57,8 @@ void update_entity(Entity *ent) {
 
 void draw_entity(Entity *ent, Font *font) {
   DrawTextEx(*font, ent->symbol,
-             (Vector2){ent->x * FONTSIZE, ent->y * FONTSIZE}, FONTSIZE, 2,
-             ent->color);
+             (Vector2){ent->x * FONTWIDTH, ent->y * FONTHEIGHT}, FONTSIZE,
+             SPACING, ent->color);
 }
 
 void update_entities() {

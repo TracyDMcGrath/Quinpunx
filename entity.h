@@ -25,7 +25,7 @@ typedef struct Entity {
 } Entity;
 
 Id find_next_free();
-void init_entity(Entity *form);
+void init_entity(Entity *form, int x, int y);
 void update_entity(Entity *ent);
 void draw_entity(Entity *ent, Font *font);
 

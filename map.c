@@ -6,8 +6,9 @@
 void draw_map(Tile map[MAPWIDTH][MAPHEIGHT], Font *font) {
   for (int i = 0; i < MAPWIDTH; i++) {
     for (int j = 0; j < MAPHEIGHT; j++) {
-      DrawTextEx(*font, map[i][j].symbol, (Vector2){i * FONTSIZE, j * FONTSIZE},
-                 FONTSIZE, 2.0, map[i][j].color);
+      DrawTextEx(*font, map[i][j].symbol,
+                 (Vector2){i * FONTWIDTH, j * FONTHEIGHT}, FONTSIZE, SPACING,
+                 map[i][j].color);
     }
   }
 }

@@ -8,12 +8,17 @@ int main() {
 
   InitWindow(SCREENWIDTH, SCREENHEIGHT, "Quinpunx");
 
-  Font Mono = LoadFontEx("./assets/monofur/MonofurNerdFontMono-Regular.ttf", 32,
-                         0, 250);
+  Font Mono = LoadFontEx("./assets/monofur/MonofurNerdFontMono-Regular.ttf",
+                         FONTSIZE, 0, 250);
 
   Tile Map[MAPWIDTH][MAPHEIGHT];
 
-  init_entity(&PLAYER_FORM);
+  init_entity(&PLAYER_FORM, 10, 10);
+  init_entity(&PLAYER_FORM, 11, 11);
+  init_entity(&PLAYER_FORM, 12, 12);
+  init_entity(&PLAYER_FORM, 10, 12);
+  init_entity(&PLAYER_FORM, 12, 10);
+
   init_map(Map);
 
   SetTargetFPS(60);
