@@ -19,6 +19,17 @@ Id find_next_free() {
   return none_free;
 }
 
+Id find_next_used() {
+
+  for (int i = 0; i < sizeof(USED) / sizeof(USED[0]); i++) {
+    if (USED[i] == 1) {
+      return (Id){i, GEN[i]};
+    }
+  }
+  Id none_used = NILL_ID;
+  return none_used;
+}
+
 void init_entity(Entity *form, int x, int y) {
   Id next_free = find_next_free();
   memcpy(&ENTITIES[next_free.index], form, sizeof(Entity));

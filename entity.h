@@ -3,7 +3,7 @@
 #include "constants.h"
 #include <raylib.h>
 
-typedef enum { NILL, PLAYER } Type;
+typedef enum { NILL, PLAYER, SNAKE } Type;
 
 typedef struct Id {
   int index;
@@ -25,6 +25,7 @@ typedef struct Entity {
 } Entity;
 
 Id find_next_free();
+Id find_next_used();
 void init_entity(Entity *form, int x, int y);
 void update_entity(Entity *ent);
 void draw_entity(Entity *ent, Font *font);

@@ -3,8 +3,12 @@
 #include "map.h"
 #include "templates.h"
 #include <raylib.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
+
+  srand(time(NULL));
 
   InitWindow(SCREENWIDTH, SCREENHEIGHT, "Quinpunx");
 
@@ -18,6 +22,8 @@ int main() {
   init_entity(&PLAYER_FORM, 12, 12);
   init_entity(&PLAYER_FORM, 10, 12);
   init_entity(&PLAYER_FORM, 12, 10);
+  init_entity(&SNAKE_FORM, rand() % (MAPWIDTH - 2) + 1,
+              rand() % (MAPHEIGHT - 2) + 1);
 
   init_map(Map);
 

@@ -6,5 +6,6 @@
 
 extern Entity NILL_FORM;
 extern Entity PLAYER_FORM;
+extern Entity SNAKE_FORM;
 
 #endif // ifndef _templates_h_
