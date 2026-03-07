@@ -3,28 +3,31 @@
 #include <raylib.h>
 #include <string.h>
 
-void draw_map(Tile map[MAPWIDTH][MAPHEIGHT], Font *font) {
+Tile MAP[MAPWIDTH][MAPHEIGHT];
+
+void draw_map(Font *font) {
   for (int i = 0; i < MAPWIDTH; i++) {
     for (int j = 0; j < MAPHEIGHT; j++) {
-      DrawTextEx(*font, map[i][j].symbol,
+      DrawTextEx(*font, MAP[i][j].symbol,
                  (Vector2){i * FONTWIDTH, j * FONTHEIGHT}, FONTSIZE, SPACING,
-                 map[i][j].color);
+                 MAP[i][j].color);
     }
   }
 }
 
-void init_map(Tile map[MAPWIDTH][MAPHEIGHT]) {
+void init_map() {
   for (int i = 0; i < MAPWIDTH; i++) {
     for (int j = 0; j < MAPHEIGHT; j++) {
       if (i == 0 || i == (MAPWIDTH - 1) || j == 0 || j == (MAPHEIGHT - 1)) {
-        map[i][j].color = GRAY;
-        strcpy(map[i][j].symbol, "#");
-        map[i][j].blocks_sight = 1;
+        MAP[i][j].color = GRAY;
+        strcpy(MAP[i][j].symbol, "#");
+        MAP[i][j].blocks_sight = 1;
+        MAP[i][j].blocks_movement = 1;
 
       } else {
-        map[i][j].color = GRAY;
-        strcpy(map[i][j].symbol, ".");
-        map[i][j].blocks_sight = 1;
+        MAP[i][j].color = GRAY;
+        strcpy(MAP[i][j].symbol, ".");
+        MAP[i][j].blocks_sight = 1;
       }
     }
   }

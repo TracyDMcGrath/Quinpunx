@@ -7,11 +7,14 @@
 typedef struct Tile {
   char symbol[2];
   int blocks_sight;
+  int blocks_movement;
   Color color;
 } Tile;
 
-void draw_map(Tile map[MAPWIDTH][MAPHEIGHT], Font *font);
+extern Tile MAP[MAPWIDTH][MAPHEIGHT];
 
-void init_map(Tile map[MAPWIDTH][MAPHEIGHT]);
+void draw_map(Font *font);
+
+void init_map();
 
 #endif // !_map_h_
